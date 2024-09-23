@@ -52,3 +52,16 @@
     align-items: center;
     flex-direction: column;
 }
+
+.colorblindness-navbar {
+    background-color: rgb(233, 233, 233) !important;
+}
+
+.nav-item-link {
+    text-decoration: none;
+    padding-left: 30px;
+}
+
+.nav-link {
+    font-size: larger;
+}
