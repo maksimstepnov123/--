@@ -1,0 +1,54 @@
+.navbar__icon {
+    max-height: 100%;
+}
+
+
+.navbar-icon-contaner {
+    height: 40px;
+}
+
+.navbar__icon {
+    height: 100%;
+    transform: scale(1.5);
+}
+
+.sectionStartTest {
+    width: 100%;
+    height: 600px;
+    padding: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sectionStartTest * {
+    flex-grow: 0;
+
+}
+
+.sectionStartTest__eyeimage {
+    height: 300px;
+}
+
+.scrollspy-example-2 {
+    height: calc(100vh - 72px);
+    overflow: scroll;
+    /* width: 100%; */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+.scrolling-sections {
+    width: 60%;
+}
+
+.colorblindness-info-section {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
