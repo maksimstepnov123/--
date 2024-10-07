@@ -13,7 +13,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light colorblindness-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand navbar-icon-contaner" href="#"><img src="images/icon.png" class="navbar__icon"></a>
+            <a class="navbar-brand navbar-icon-contaner" href="index.html"><img src="images/icon.png"
+                    class="navbar__icon"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -22,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="test.html">Пройти тест</a>
+                        <a class="nav-link" href="#">Пройти тест</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aboutcolorblindness.html">О дальтонизме</a>
@@ -31,19 +32,13 @@
             </div>
         </div>
     </nav>
-    <section class="sectionStartTest text-center">
-        <h1 class="h1">
-            Узнайте есть ли у вас дальтонизм
-        </h1>
-        <img src="images/eye.png" alt="" class="rounded mx-auto d-block sectionStartTest__eyeimage">
-        <a class="btn btn-primary btn-lg" href="test.html" role="button">Пройти тест</a>
-        <a class="btn btn-outline-secondary" href="aboutcolorblindness.html" role="button">Типы дальтонизма</a>
+    <section class="test-window">
+        <h1>Нажмите на цифру которую видите</h1>
+        <button class="test-window__cant-see">Не вижу цифру
+        </button>
     </section>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="test.js"></script>
 </body>
 
 </html>
