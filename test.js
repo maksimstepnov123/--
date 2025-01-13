@@ -1,11 +1,22 @@
 const testWindow = document.querySelector(".test-window")
 let pressedKeyKeycode;
+
+
+const cantSeeButton = document.querySelector(".test-window__cant-see")
+
 function waitingKeypress() {
     return new Promise((resolve) => {
         document.addEventListener('keydown', onKeyHandler);
+        cantSeeButton.addEventListener("click", onKeyHandler);
         function onKeyHandler(e) {
-            if ((e.keyCode >= 48 && e.keyCode <= 57) || e.keyCode === 32) {
-                pressedKeyKeycode = e.keyCode;
+            console.log(e)
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || e.keyCode === 32 || e.type == "click") {
+                if (e.type == "click") {
+                    pressedKeyKeycode = "32"
+                }
+                else {
+                    pressedKeyKeycode = e.keyCode;
+                }
                 document.removeEventListener('keydown', onKeyHandler);
                 resolve();
             }
@@ -20,20 +31,45 @@ let tritanopiaScore = 0;
 
 const blindnessImages = [
     {
-        keyCode: 52,
-        blindnesstype: "protanopia",
-        text: "протанопия 4"
+        keyCode: 50,
+        blindnesstype: "deiteranopia",
+        url: "images/d2.jpg"
+    },
+    {
+        keyCode: 53,
+        blindnesstype: "deiteranopia",
+        url: "images/d5.jpg"
     },
     {
         keyCode: 51,
-        blindnesstype: "deiteranopia",
-        text: "Дейтеранопия 3"
+        blindnesstype: "protanopia",
+        url: "images/p3.png"
     },
     {
-        keyCode: 55,
-        blindnesstype: "tritanopia",
-        text: "Тританопия 7"
+        keyCode: 53,
+        blindnesstype: "protanopia",
+        url: "images/p5.png"
     },
+    {
+        keyCode: 56,
+        blindnesstype: "protanopia",
+        url: "images/p8.png"
+    },
+    {
+        keyCode: 32,
+        blindnesstype: "protanopia",
+        url: "images/pnothing.png"
+    },
+    // {
+    //     keyCode: 51,
+    //     blindnesstype: "deiteranopia",
+    //     text: "Дейтеранопия 3"
+    // },
+    // {
+    //     keyCode: 55,
+    //     blindnesstype: "tritanopia",
+    //     text: "Тританопия 7"
+    // },
 ]
 
 function shuffle(array) {
@@ -45,9 +81,10 @@ function shuffle(array) {
 async function startTest(arr) {
 
     for (const i of arr) {
-        const image = document.createElement("span")
-        image.innerHTML = i.text
-        console.log(image)
+        const image = document.createElement("img")
+        image.src = i.url
+        console.log(i.url, image.src)
+        image.classList.add("testImage")
         testWindow.append(image)
         await waitingKeypress(i.keyCode)
 
@@ -96,3 +133,5 @@ async function startTest(arr) {
     alert(`protanopiaScore = ${protanopiaScore}\ndeiteranopiaScore = ${deiteranopiaScore}\ntritanopiaScore = ${tritanopiaScore}`)
 }
 startTest(shuffle(blindnessImages))
+
+
