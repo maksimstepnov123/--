@@ -1,6 +1,7 @@
 const testWindow = document.querySelector(".test-window")
 let pressedKeyKeycode;
 
+let label = document.querySelector(".label")
 
 const cantSeeButton = document.querySelector(".test-window__cant-see")
 
@@ -115,22 +116,33 @@ async function startTest(arr) {
             }
 
         }
-
-        if (i.blindnesstype == "tritanopia") {
-            if (pressedKeyKeycode == i.keyCode) {
-                console.log(pressedKeyKeycode, i.keyCode)
-                image.classList.add("hidden")
-                pressedKeyKeycode = 0;
-            }
-            else {
-                image.classList.add("hidden")
-                tritanopiaScore += 1;
-                pressedKeyKeycode = 0;
-            }
-
-        }
     }
-    alert(`protanopiaScore = ${protanopiaScore}\ndeiteranopiaScore = ${deiteranopiaScore}\ntritanopiaScore = ${tritanopiaScore}`)
+    label.innerHTML = "Результаты"
+    cantSeeButton.remove()
+    const rightOf = document.createElement("h3")
+    rightOf.innerHTML = `Правильно ${6 - protanopiaScore - deiteranopiaScore} из 6`
+    testWindow.append(rightOf)
+    if (protanopiaScore != 0 && protanopiaScore > deiteranopiaScore) {
+        const protanRes = document.createElement("p")
+        protanRes.innerHTML = `Возможно у вас протанопия — отсутствие восприятия красного цвета.`
+        testWindow.append(protanRes)
+    }
+    else if (deiteranopiaScore != 0 && deiteranopiaScore > protanopiaScore) {
+        const protanRes = document.createElement("p")
+        protanRes.innerHTML = `Возможно у вас дейтеранопия — пониженая чувствительность к зелёному цвету.`
+        testWindow.append(protanRes)
+    }
+    else if (deiteranopiaScore != 0 && protanopiaScore != 0) {
+        const protanRes = document.createElement("p")
+        protanRes.innerHTML = `Возможно у вас протанопия — отсутствие восприятия красного цвета, или другой, более редкий вид дальтонизма. Советуем пройти консультацию со специолистом.`
+        testWindow.append(protanRes)
+    }
+    else {
+        const protanRes = document.createElement("p")
+        protanRes.innerHTML = `У вас нормальное цветовое восприятие.`
+        testWindow.append(protanRes)
+    }
+
 }
 startTest(shuffle(blindnessImages))
 
